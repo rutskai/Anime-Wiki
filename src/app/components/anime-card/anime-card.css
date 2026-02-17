@@ -1,0 +1,137 @@
+/* Grid principal */
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  padding: 32px;
+}
+
+/* Card */
+.anime-card {
+  background: #fff0f6;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(255, 182, 213, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid #ffd6e8;
+}
+
+.anime-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(255, 150, 200, 0.35);
+}
+
+/* Imagen */
+.anime-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Info */
+.anime-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.anime-info h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #5c3d5e;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.synopsis {
+  font-size: 0.82rem;
+  color: #9b7fa0;
+  line-height: 1.5;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Detalles */
+.anime-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.anime-details span {
+  background: #fce4f3;
+  color: #b5689a;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Status badges */
+.status {
+  font-weight: 600 !important;
+}
+
+.status.En\ emisión {
+  background: #d6f5e3 !important;
+  color: #3a9e6f !important;
+  border: 1px solid #a8e6c3;
+}
+
+.status.Finalizado {
+  background: #dce8ff !important;
+  color: #5a7fd4 !important;
+  border: 1px solid #b3caff;
+}
+
+.status.Pendiente {
+  background: #fff4d6 !important;
+  color: #c49a00 !important;
+  border: 1px solid #ffe08a;
+}
+
+/* Botones */
+.anime-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.btn-edit,
+.btn-delete {
+  flex: 1;
+  padding: 8px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.btn-edit {
+  background: linear-gradient(135deg, #f9a8d4, #e879a0);
+  color: white;
+}
+
+.btn-delete {
+  background: linear-gradient(135deg, #86efac, #4ade80);
+  color: white;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+  opacity: 0.85;
+  transform: scale(1.03);
+}
+

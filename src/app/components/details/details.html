@@ -1,5 +1,5 @@
 <div class="anime-grid">
-  @for (anime of animes; track anime.id) {
+
     <div class="anime-card">
       <img src="{{anime.imageUrl}}" alt="{{anime.title}}" class="anime-img"/>
       
@@ -16,12 +16,12 @@
         </div>
 
         <div class="anime-actions">
-          <button (click)="goToDetails(anime.id)" class="btn-edit">Ver detalles</button>
+          <button routerLink="/detailsAnime" class="btn-edit">Editar</button>
+          <button routerLink="/detailsAnime" class="btn-delete">Eliminar</button>
       
         </div>
       </div>
     </div>
-  } @empty {
-    <p class="no-animes">No hay animes en la colección todavía... (´；ω；`)</p>
-  }
+
+   
 </div>

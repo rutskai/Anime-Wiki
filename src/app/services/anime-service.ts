@@ -7,10 +7,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AnimeService {
-  private apiUrl: string;
+  private readonly apiUrl: string;
 
   constructor(private http: HttpClient){
-    this.apiUrl="dxsg";
+    this.apiUrl="https://69949961fade7a9ec0f5da76.mockapi.io/Anime";
 
   }
 
@@ -19,11 +19,18 @@ export class AnimeService {
   }
 
     getById(id: string): Observable<Anime> {
+       if (!id) {
+    throw new Error('ID es requerido');
+  }
     return this.http.get<Anime>(`${this.apiUrl}/${id}`);
   }
 
    create(anime: Anime): Observable<Anime> {
     return this.http.post<Anime>(this.apiUrl, anime);
+  }
+
+    update(id: string, anime: Anime): Observable<Anime> {
+    return this.http.put<Anime>(`${this.apiUrl}/${id}`, anime);
   }
 
    delete(id: string): Observable<void> {

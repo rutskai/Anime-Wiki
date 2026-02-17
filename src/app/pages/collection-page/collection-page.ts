@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { AnimeCard } from "../../components/anime-card/anime-card";
 
 @Component({
-  selector: 'app-home-page',
+  selector: 'app-collection-page',
   imports: [AnimeCard],
-  templateUrl: './home-page.html',
-  styleUrl: './home-page.css',
+  templateUrl: './collection-page.html',
+  styleUrl: './collection-page.css',
 })
-export class HomePage {
+export class CollectionPage {
 
 }
