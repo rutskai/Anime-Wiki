@@ -19,8 +19,15 @@
 
 
     <nav class="nav">
-      <a routerLink="/collectionPage" class="nav-link"><span class="nav-emoji">📚</span> Mi colección</a>
       <a routerLink="/create" class="nav-link nav-link--add"> <span class="nav-emoji">✨</span> Añadir anime</a>
+
+      @if(!currentUser){
+      <a routerLink="/loginForm" class="nav-link"><span class="nav-emoji"></span> Iniciar sesión</a>
+      <a routerLink="/registerForm" class="nav-link"><span class="nav-emoji"></span> Registrarse</a>
+      } @else {
+      <a routerLink="/" class="nav-link nav-link--add"> <span class="nav-emoji">🧛‍♀️</span>{{currentUser.nickname}}</a>
+      }
+     
     </nav>
       </div>
 

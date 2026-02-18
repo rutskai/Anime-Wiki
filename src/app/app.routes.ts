@@ -1,9 +1,13 @@
 import { Routes } from '@angular/router';
 import { HomePage } from './pages/home-page/home-page';
-import { CollectionPage } from './pages/collection-page/collection-page';
 import { AnimeDetailsPage } from './pages/anime-details-page/anime-details-page';
+import { FormAnimePage } from './pages/form-anime-page/form-anime-page';
+import { LoginFormPage } from './pages/login-form-page/login-form-page';
+import { RegisterFormPage } from './pages/register-form-page/register-form-page';
 
 export const routes: Routes = [
     {path:"", component: HomePage},
-    {path: "collectionPage", component: CollectionPage},
-    {path: "detailsAnime/:id", component: AnimeDetailsPage }];
+    {path: "detailsAnime/:id", component: AnimeDetailsPage },
+    {path: "create", component: FormAnimePage},
+    {path: "loginForm", component: LoginFormPage},
+    {path:"registerForm", component:RegisterFormPage}];

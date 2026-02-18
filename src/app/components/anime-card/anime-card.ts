@@ -1,11 +1,11 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Anime } from '../../models/anime.model';
 import { AnimeService } from '../../services/anime-service';
-import { Router, RouterLink } from "@angular/router";
+import { Router} from "@angular/router";
 
 @Component({
   selector: 'app-anime-card',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './anime-card.html',
   styleUrl: './anime-card.css',
 })

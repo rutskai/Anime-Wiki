@@ -1,0 +1,123 @@
+.form-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffeef8 0%, #fff0f6 50%, #ffe4f3 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.form-card {
+  background: white;
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(249, 168, 212, 0.3);
+  border: 2px solid #ffd6e8;
+}
+
+h1 {
+  text-align: center;
+  color: #d946a6;
+  font-size: 1.8rem;
+  margin-bottom: 32px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+label {
+  display: block;
+  color: #a855a0;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #fce4f3;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: #fef8fc;
+  color: #5c3d5e;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #f9a8d4;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(249, 168, 212, 0.1);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.error {
+  display: block;
+  color: #ec4899;
+  font-size: 0.75rem;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.btn-cancel,
+.btn-submit {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel {
+  background: #fce4f3;
+  color: #c084a6;
+}
+
+.btn-cancel:hover {
+  background: #f9d5ea;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, #f9a8d4, #e879a0);
+  color: white;
+  box-shadow: 0 4px 16px rgba(232, 121, 160, 0.3);
+}
+
+.btn-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 121, 160, 0.4);
+}
+
+.btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
