@@ -55,6 +55,7 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(249, 168, 212, 0.1);
 }
 
+
 .field-error {
   color: #ec4899;
   font-size: 0.75rem;
@@ -66,7 +67,7 @@ fieldset p:not(.field-error) {
   color: #b5689a;
   font-size: 0.75rem;
   margin-top: 6px;
-  font-style: italic;
+
 }
 
 button[type="submit"] {

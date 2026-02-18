@@ -10,7 +10,6 @@ import { Anime } from '../../models/anime.model';
   styleUrl: './details.css',
 })
 export class Details implements OnInit{
-  // anime?: Anime;
    anime:any={};
 
   constructor(private animeService: AnimeService,private cdr:ChangeDetectorRef, private route: ActivatedRoute, private router: Router){
@@ -20,7 +19,6 @@ export class Details implements OnInit{
      const id = this.route.snapshot.paramMap.get('id');
      if(!id) return;
      this.loadAnime(id);
-    
   }
 
   loadAnime(id:string){
@@ -35,6 +33,21 @@ export class Details implements OnInit{
         }
       });
     }
+
+  deleteAnime(id:string){
+    this.animeService.delete(id).subscribe({
+      next:()=>{
+       this.router.navigate(['/']);
+      },
+      error:()=> {
+        console.error("Error al eliminar el anime.");
+      }
+    })
+  }
+
+   goToEdit(id:string){
+    this.router.navigate(["/edit", id]);
+  }
 
 
 }
