@@ -22,7 +22,7 @@ h1 {
   color: #d946a6;
   font-size: 1.8rem;
   margin-bottom: 32px;
-  font-family: 'Segoe UI', sans-serif;
+
 }
 
 .form-group {
@@ -54,7 +54,7 @@ select {
   transition: all 0.3s ease;
   background: #fef8fc;
   color: #5c3d5e;
-  font-family: 'Segoe UI', sans-serif;
+
 }
 
 input:focus,
