@@ -17,8 +17,25 @@ export class FormAnime implements OnInit{
 
   statusOptions = ['En emisión', 'Finalizado', 'Pendiente'];
 
+
+  /**
+   * Constructor del componente FormAnime
+   * Inicializa los servicios necesarios para gestionar animes,
+   * navegar entre páginas y acceder a los parámetros de la ruta
+   *
+   * @param {AnimeService} animeService - Servicio para gestionar los datos de los animes
+   * @param {Router} router - Servicio para navegar entre las páginas
+   * @param {ActivatedRoute} route - Servicio para acceder a los parámetros de la ruta activa
+   */
   constructor(private animeService: AnimeService,private router: Router, private route: ActivatedRoute) {}
    
+  /**
+   * Inicializa el componente creando el formulario reactivo con sus campos y validadores
+   * Si existe un id en la ruta, carga los datos del anime correspondiente
+   * y rellena el formulario con ellos para su edición
+   *
+   * @returns {void}
+   */
  ngOnInit(): void {
     this.animeForm = new FormGroup({
       title: new FormControl('', [Validators.required, Validators.minLength(2)]),
@@ -42,6 +59,12 @@ export class FormAnime implements OnInit{
     }
   }
 
+    /**
+   * Maneja el envío del formulario decidiendo si crear o actualizar el anime
+   * Si existe un id llama a update(), si no existe llama a create()
+   *
+   * @returns {void}
+   */
   onSubmit(): void {
     if(this.id){
       this.update();
@@ -50,7 +73,14 @@ export class FormAnime implements OnInit{
     }
   }
 
-  create(){
+  /**
+   * Crea un nuevo anime en el servidor con los datos del formulario
+   * Si el formulario es válido, envía los datos y redirige a la página principal.
+   * Si ocurre un error durante la creación, lo muestra por consola
+   *
+   * @returns {void}
+   */
+  create():void{
     if (this.animeForm.valid) {
       const animeData: Anime = this.animeForm.value;
       
@@ -65,6 +95,14 @@ export class FormAnime implements OnInit{
     }
   }
 
+  /**
+   * Actualiza un anime existente en el servidor con los datos del formulario
+   * Si el formulario es válido, envía los datos actualizados y redirige a la página principal.
+   * Si ocurre un error durante la actualización, lo muestra por consola
+   *
+   * @returns {void}
+   */
+
  update(): void {
   if(this.animeForm.valid){
     const animeData: Anime = this.animeForm.value;
@@ -74,6 +112,12 @@ export class FormAnime implements OnInit{
     });
   }
   }
+
+    /**
+   * Cancela la operación actual y redirige a la página principal
+   *
+   * @returns {void}
+   */
 
    cancel(): void {
     this.router.navigate(['/']);
