@@ -9,7 +9,6 @@ import { UserService } from '../../services/user/user-service';
   styleUrl: './header.css',
 })
 export class Header {
-   //currentUser: { email: string, nickname:string } | null = null;
 
   /**
    * Constructor del componente
@@ -21,7 +20,15 @@ export class Header {
   constructor(private user: UserService){
   }
 
- get currentUser(){
+   /**
+   * Obtiene los datos del usuario actualmente logueado
+   * Retorna null si no hay ningún usuario con sesión activa
+   *
+   * @returns {Object|null} Objeto con email y nickname del usuario actual,
+   *                        o null si no hay sesión activa
+   */
+
+ get currentUser():{ email: string, nickname: string } | null {
     return this.user.getCurrentUser();
   }
 }

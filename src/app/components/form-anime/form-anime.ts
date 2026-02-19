@@ -16,10 +16,26 @@ export class FormAnime implements OnInit{
 
   statusOptions = ['En emisión', 'Finalizado', 'Pendiente'];
 
+  /**
+   * Constructor del componente FormAnime
+   * Inicializa los servicios necesarios para gestionar animes y navegar entre páginas
+   *
+   * @param {AnimeService} animeService - Servicio para gestionar los datos de los animes
+   * @param {Router} router - Servicio para navegar entre las páginas
+   */
+
   constructor(private animeService: AnimeService,private router: Router) {}
    
- ngOnInit(): void {
-    this.animeForm = new FormGroup({
+   /**
+   * Inicializa el componente creando el formulario reactivo con sus campos y validadores
+   * Crea el FormGroup con los campos correspondientes aplicando validaciones
+   * obligatorias, de longitud mínima, de rango numérico y de formato de URL
+   *
+   * @returns {void}
+   */
+
+    ngOnInit(): void {
+      this.animeForm = new FormGroup({
       title: new FormControl('', [Validators.required, Validators.minLength(2)]),
       synopsis: new FormControl('', [Validators.required, Validators.minLength(10)]),
       genre: new FormControl('', [Validators.required]),
@@ -31,6 +47,14 @@ export class FormAnime implements OnInit{
     });
 
   }
+
+  /**
+   * Maneja el envío del formulario y crea un nuevo anime en el servidor
+   * Si el formulario es válido, envía los datos y redirige a la página principal.
+   * Si ocurre un error durante la creación, lo muestra por consola
+   *
+   * @returns {void}
+   */
 
   onSubmit(): void {
     if (this.animeForm.valid) {
@@ -46,6 +70,12 @@ export class FormAnime implements OnInit{
       });
     }
   }
+
+   /**
+   * Cancela la creación del anime y redirige a la página principal
+   *
+   * @returns {void}
+   */
 
    cancel(): void {
     this.router.navigate(['/']);

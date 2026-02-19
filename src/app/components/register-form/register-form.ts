@@ -19,7 +19,7 @@ export class RegisterForm {
    * obligatorias, de mínimo de longitud, de email y dos propias que comparan que las
    * dos contraseñas coincidan y el email no esté repetido.
    * 
-   * @param {User} userService - Servicio para gestionar usuarios
+   * @param {UserService} userService - Servicio para gestionar usuarios
    * @param {Router} router - Servicio para navegar entre páginas
    */
   constructor(private userService: UserService, private router: Router) {
@@ -38,7 +38,7 @@ export class RegisterForm {
    * Comprueba que el campo password y repeatPassword sean idénticos
    * 
    * @param {any} control - Los campos de FormGroup a validar (password,repeatpassword)
-   * @returns {Object|null} Retorna {noMatch: true} si las contraseñas no coinciden,
+   * @returns {ValidationErrors|null} Retorna {noMatch: true} si las contraseñas no coinciden,
    *                        null si la validación es correcta
    */
 
@@ -53,12 +53,13 @@ export class RegisterForm {
   }
 
   /**
- * Validador que verifica si el email ya está registrado en el servidor
- * 
- * @param control - El control del formulario que contiene el email a validar
- * @returns Un objeto con el error { emailRepeated: true } si el email ya existe,
- *          o null si el email es válido (no está repetido)
- */
+   * Validador personalizado a nivel de campo
+   * Verifica si el email introducido ya está registrado en el sistema
+   *
+   * @param {any} control - El control del formulario que contiene el email a validar
+   * @returns {ValidationErrors|null} Retorna {emailRepeated: true} si el email ya existe,
+   *                        null si el email es válido
+   */
 
   repeatedEmail(control: any): ValidationErrors | null {
   const email = control.value;
@@ -72,7 +73,6 @@ export class RegisterForm {
 }
 
  
-
    /**
    * Maneja la creación de una nueva cuenta de usuario y reinicia el formulario
    * Valida el formulario y, si es correcto, crea la cuenta en el servidor y

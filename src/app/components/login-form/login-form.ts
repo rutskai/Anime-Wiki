@@ -18,7 +18,7 @@ export class LoginForm {
    * Inicializa el formulario de login y la variable loginError 
    * Contiene validaciones requeridas y de email con Validators
    * 
-   * @param {User} userService - Servicio para gestionar usuarios y validar datos
+   * @param {UserService} userService - Servicio para gestionar usuarios y validar datos
    * @param {Router} router - Servicio para navegar entre rutas
    */
 
