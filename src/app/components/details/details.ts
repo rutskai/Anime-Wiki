@@ -59,14 +59,6 @@ export class Details implements OnInit{
    * @returns {void}
    */
 
-  /**
-   * Obtiene los datos de un anime por su id y los almacena en la propiedad anime
-   * Si ocurre un error durante la carga, redirige a la página principal
-   *
-   * @param {string} id - Identificador único del anime a cargar
-   * @returns {void}
-   */
-
   loadAnime(id:string): void{
       this.animeService.getById(id).subscribe({
         next: (data) => {
@@ -80,7 +72,14 @@ export class Details implements OnInit{
       });
     }
 
-  deleteAnime(id:string){
+    /**
+   * Elimina el anime con el id especificado y redirige a la página principal
+   * Si ocurre un error durante la eliminación, lo muestra por consola
+   *
+   * @param {string} id - Identificador único del anime a eliminar
+   * @returns {void}
+   */
+  deleteAnime(id:string):void{
     this.animeService.delete(id).subscribe({
       next:()=>{
        this.router.navigate(['/']);
@@ -91,7 +90,15 @@ export class Details implements OnInit{
     })
   }
 
-   goToEdit(id:string){
+
+  /**
+   * Navega a la página de edición del anime seleccionado
+   *
+   * @param {string} id - Identificador único del anime a editar
+   * @returns {void}
+   */
+
+   goToEdit(id:string):void{
     this.router.navigate(["/edit", id]);
   }
 
