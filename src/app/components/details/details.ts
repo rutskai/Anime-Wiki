@@ -49,8 +49,15 @@ export class Details implements OnInit{
      const id = this.route.snapshot.paramMap.get('id');
      if(!id) return;
      this.loadAnime(id);
-    
   }
+
+  /**
+   * Obtiene los datos de un anime por su id y los almacena en la propiedad anime
+   * Si ocurre un error durante la carga, redirige a la página principal
+   *
+   * @param {string} id - Identificador único del anime a cargar
+   * @returns {void}
+   */
 
   /**
    * Obtiene los datos de un anime por su id y los almacena en la propiedad anime
@@ -72,6 +79,21 @@ export class Details implements OnInit{
         }
       });
     }
+
+  deleteAnime(id:string){
+    this.animeService.delete(id).subscribe({
+      next:()=>{
+       this.router.navigate(['/']);
+      },
+      error:()=> {
+        console.error("Error al eliminar el anime.");
+      }
+    })
+  }
+
+   goToEdit(id:string){
+    this.router.navigate(["/edit", id]);
+  }
 
 
 }

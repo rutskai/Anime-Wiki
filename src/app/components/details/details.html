@@ -16,8 +16,8 @@
         </div>
 
         <div class="anime-actions">
-          <button routerLink="/detailsAnime" class="btn-edit">Editar</button>
-          <button routerLink="/detailsAnime" class="btn-delete">Eliminar</button>
+          <button (click)="goToEdit(anime.id)" class="btn-edit">Editar</button>
+          <button (click)="deleteAnime(anime.id)" class="btn-delete">Eliminar</button>
       
         </div>
       </div>

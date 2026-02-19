@@ -75,9 +75,16 @@
 
       <div class="form-actions">
         <button type="button" class="btn-cancel" (click)="cancel()">Cancelar</button>
-        <button type="submit" class="btn-submit" [disabled]="animeForm.invalid">
-          Añadir
-        </button>
+        @if(id== null){
+          <button type="submit" class="btn-submit" [disabled]="animeForm.invalid">
+            Añadir
+          </button>
+        }@else {
+          <button type="submit" class="btn-submit" [disabled]="animeForm.invalid">
+            Actualizar
+          </button>
+        }
+        
       </div>
 
     </form>
